@@ -7,11 +7,23 @@
     <title>Home</title>
     <style>
         .title {
-            font-size: 30px;
+            font-size: 50px;
             text-align: center;
             font-weight: bold;
             margin-bottom: 30px;
+            margin-top: 40px;
+            border: 1px solid black;
+            border-color: antiquewhite;
+            background-color: #ffcc99;
+            padding: 20px;
+            text-align: center;
+            width: 100vw;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
         }
+
 
         .banner {
             display: flex;
@@ -104,8 +116,15 @@
             width: 100%;
         }
         .desc{
-            margin: 20px;
+            color: pink;
+            top: 10px;
+
             font-weight: bold;
+            position: fixed;
+            text-align: center;
+            font-size: 16px;
+            opacity: 1;
+            transition: opacity 0.5s;
         }
         body{
             height: 100%;
@@ -145,10 +164,7 @@
 
 <body>
     <div class="container" id="top">
-        <div class="title">欢迎语</div>
-        <h2 class="desc">
-            Welcome to 筹款活动 Web
-        </h2>
+        <div class="title">Sue's FundHub</div>
         <div class="banner">
             <div class="banner-item item1" onclick="toIndex()">
                 筹款活动
@@ -156,6 +172,10 @@
             <div class="banner-item item2"  onclick="toSearch()">
                 活动搜索
             </div>
+        </div>
+
+        <div class="desc" id="fadeText">
+            We're delighted to have you here. At Sue's FundHub, we connect passionate fundraisers with generous donors to support meaningful causes!
         </div>
        
         <div class="intro">
@@ -176,53 +196,7 @@
     </div>
     <div id="bottom"></div>
     <script src="./jquery.js"></script>
-    <script>
-          //  活动数据
-          let list = []
-        //  获取所有活动
-        function getActiveList(){
-            $.get('http://localhost:3000/api/all', function(data, status) {
-                 console.log(data);
-                 list = data;
-                 showList()
-            });
-
-        }
-       
-        getActiveList()
-        //  展示活动列表
-       function showList(){
-        let html = '';
-       
-        for(let i=0;i<list.length;i++){
-            let temp =`<div class="active-info" id='active${i+1}'>
-                  <div class="right">
-                    <img class="active-img"
-                    src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
-                    alt="">
-                </div>
-                <div class="left">
-                    <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
-                    <div class="left-item"><div>组织者：</div><div class="line">${list[i].ORGANIZER}</div></div>
-                    <div class="left-item"><div>标题：</div><div class="line">${list[i].TITLE}</div></div>
-                    
-                    <div class="left-item"><div>目标资金：</div><div class="line">${list[i].TARGET_FUNDING}</div></div>
-                    <div class="left-item"><div>当前资金：</div><div class="line">${list[i].CURRENT_FUNDING}</div></div>
-                    <div class="left-item"><div>城市：</div><div class="line">${list[i].CITY}</div></div>
-                    <div class="left-item"><div>类型：</div><div class="line">${list[i].NAME}</div></div>
-                </div>
-              
-            </div>`
-            html += temp
-        }
-        $(".list").html(html)
-       }
-       //   跳转到搜索页面
-       function toSearch(){
-        window.location.href = 'Search fundraisers.html'
-       }
-
-    </script>
+    <script src="./js/aaa.js"></script>
 </body>
 
 </html>
