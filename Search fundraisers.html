@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title {
+            font-size: 30px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .banner {
+            display: flex;
+            border-bottom: 1px solid gray   ;
+        }
+
+        .banner-item {
+            text-align: left;
+            padding: 10px;
+        }
+
+        .item1{
+                    border: 2px solid gray;
+                    border-bottom: none;
+                }
+        .container {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .desc{
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .img {
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .intro {
+            width: 100%;
+        }
+
+        .text {
+            margin: 20px 0 0 0;
+            text-indent: 2rem;
+        }
+
+        .list-item {
+            margin-top: 20px;
+            background-color: rgb(203, 201, 201);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .list-item-text {
+            margin: 30px;
+        }
+
+        .menu {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        .menu-item {
+            width: 100px;
+            height: 50px;
+            background-color: rgb(120, 138, 138);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid ghostwhite;
+            margin-top: 2px;
+            color: white;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .select {
+            width: 200px;
+        }
+
+        .search {
+            width: 30px;
+        }
+
+        .active-info {
+            display: flex;
+            border: 1px solid gray;
+            margin: 20px 0;
+        }
+
+        .left {
+            width: 70%;
+            border-left: 1px solid gray;
+            padding: 20px;
+        }
+
+        .line {
+            flex: 1;
+            border-bottom: 1px solid gray;
+        }
+
+        .left-item {
+            display: flex;
+            margin: 10px 0;
+        }
+
+        .right {
+            padding: 20px;
+            width: 30%;
+            border-right: 1px solid gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .active-img {
+            width: 100%;
+        }
+
+        .desc {
+            margin: 20px;
+        }
+
+        body {
+            height: 100%;
+        }
+        .tips{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        .footer-tips{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+        .footer{
+            border: 1px solid gray;
+            padding-bottom: 20px;
+            width: 100%;
+        }
+        .concat{
+            display: flex;
+            font-size: 20px;
+            justify-content: center;
+        }
+        .footer-item{
+            text-decoration: underline;
+            margin-right: 20px;
+            
+        }
+        .form-item{
+            margin: 20px 0;
+        }
+        button{
+            width: 100px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="top">
+        <div class="title">欢迎语</div>
+        <h2 class="desc">
+            Welcome to 筹款活动 Web
+        </h2>
+        <div class="banner">
+            <div class="banner-item item2" onclick="toIndex()">
+                筹款活动
+            </div>
+            <div class="banner-item item1"  >
+                活动搜索
+            </div>
+        </div>
+        <div class="">
+            <div class="form-item">
+                城市名称： <input class="CITY" type="text" name="" id="">
+            </div>
+            <div class="form-item">
+                发起人： <input class="ORGANIZER" type="text" name="" id="">
+            </div>
+            <div class="form-item">
+                活动类型 ：
+                <select class="CATEGORY_ID">
+                    <option value="">请选择</option>
+                    <option value="1">Education</option>
+                    <option value="2">Health</option>
+                    <option value="3">Environment</option>
+                </select>
+            </div>
+            <div><button class="button" onclick="search()">
+            search    
+            </button>
+                <button class="button" onclick="clearChechboxes()">clear</button>
+            </div>
+            <div></div>
+        </div>
+        <div class="list">
+            <div class="tips">您还未搜索！</div>
+        </div>
+    </div>
+    <div id="bottom"></div>
+    <script src="./jquery.js"></script>
+    <script>
+                //  活动数据
+                let list = []
+        //  获取所有活动
+        function getList(params){
+            $.get('http://localhost:3000/api/search',params, function(data, status) {
+                 console.log(data);
+                 list = data;
+                 showList()
+            });
+
+        }
+       
+        //   跳转到详情页面
+        function toDetail(id) {
+           localStorage.setItem('id',id)
+        }
+        //  搜索按钮
+        function search() {
+            var CITY = $(".CITY").val();
+            var ORGANIZER = $(".ORGANIZER").val();
+            var CATEGORY_ID = $(".CATEGORY_ID").val();
+            if (!ORGANIZER && !CITY && !CATEGORY_ID) {
+                return    alert('至少输入一个条件')
+            }
+            let params = {
+                ORGANIZER:ORGANIZER,
+                CITY:CITY,
+                CATEGORY_ID:CATEGORY_ID
+            }
+            getList(params)
+
+        }
+        //  清楚下拉框数据
+        function clearChechboxes() {
+            $(".CITY").val('')
+            $(".ORGANIZER").val('')
+            $(".CATEGORY_ID").val('')
+        }     
+               //  展示活动列表
+       function showList(){
+        let html = '';
+       
+        for(let i=0;i<list.length;i++){
+            let temp =`<div class="active-info" id='active${i+1}'>
+                  <div class="right">
+                    <img class="active-img"
+                    src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
+                    alt="">
+                </div>
+                <div class="left">
+                    <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
+                    <div class="left-item"><div>组织者：</div><a onclick='toDetail(${list[i].CATEGORY_ID})' href='./detail.html' class="line">${list[i].ORGANIZER}</a></div>
+                    <div class="left-item"><div>标题：</div><div class="line">${list[i].TITLE}</div></div>
+                    
+                    <div class="left-item"><div>目标资金：</div><div class="line">${list[i].TARGET_FUNDING}</div></div>
+                    <div class="left-item"><div>当前资金：</div><div class="line">${list[i].CURRENT_FUNDING}</div></div>
+                    <div class="left-item"><div>城市：</div><div class="line">${list[i].CITY}</div></div>
+                    <div class="left-item"><div>类型：</div><div class="line">${list[i].NAME}</div></div>
+                </div>
+              
+            </div>`
+            html += temp
+        }
+        $(".list").html(html)
+       }
+        //   跳转到首页
+        function toIndex() {
+            window.location.href = 'index.html'
+        }
+        //   跳转到搜索页面
+        function toSearch() {
+            window.location.href = 'search.html'
+        }
+
+
+
+    </script>
+</body>
+
+</html>
