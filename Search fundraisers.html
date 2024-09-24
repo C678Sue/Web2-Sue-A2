@@ -272,7 +272,7 @@
                 </div>
                 <div class="left">
                     <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
-                    <div class="left-item"><div>组织者：</div><a onclick='toDetail(${list[i].CATEGORY_ID})' href='./detail.html' class="line">${list[i].ORGANIZER}</a></div>
+                    <div class="left-item"><div>组织者：</div><a onclick='toDetail(${list[i].CATEGORY_ID})' href='./Fundraiser.html' class="line">${list[i].ORGANIZER}</a></div>
                     <div class="left-item"><div>标题：</div><div class="line">${list[i].TITLE}</div></div>
                     
                     <div class="left-item"><div>目标资金：</div><div class="line">${list[i].TARGET_FUNDING}</div></div>
@@ -288,11 +288,11 @@
        }
         //   跳转到首页
         function toIndex() {
-            window.location.href = 'index.html'
+            window.location.href = 'Home.html'
         }
         //   跳转到搜索页面
         function toSearch() {
-            window.location.href = 'search.html'
+            window.location.href = 'Search fundraisers.html'
         }
 
 
