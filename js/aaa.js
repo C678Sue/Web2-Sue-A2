@@ -1,17 +1,15 @@
 window.addEventListener('scroll', function() {
-    var fadeText = document.getElementById('fadeText');
-    var scrollPosition = window.scrollY;
-    var windowHeight = window.innerHeight;
-    var fadeStart = 0; // 开始渐隐的位置
-    var fadeEnd = windowHeight / 2.5; // 完全消失的位置
-
-    if (scrollPosition <= fadeStart) {
-        fadeText.style.opacity = 1;
-    } else if (scrollPosition >= fadeEnd) {
-        fadeText.style.opacity = 0;
+    const welcomeMessage = document.getElementById('welcome');
+    const welcomeSection = document.querySelector('.welcome-section');
+    if (window.scrollY > 100) {
+        welcomeMessage.classList.add('fade-out');
     } else {
-        var opacity = 1 - (scrollPosition - fadeStart) / (fadeEnd - fadeStart);
-        fadeText.style.opacity = opacity;
+        welcomeMessage.classList.remove('fade-out');
+    }
+    if (window.scrollY > 150) {
+        welcomeSection.classList.add('fade-out');
+    } else {
+        welcomeSection.classList.remove('fade-out');
     }
 });
  

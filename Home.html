@@ -7,34 +7,37 @@
     <title>Home</title>
     <style>
         .title {
-            font-size: 50px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 30px;
-            margin-top: 40px;
-            border: 1px solid black;
-            border-color: antiquewhite;
-            background-color: #ffcc99;
-            padding: 20px;
-            text-align: center;
-            width: 100vw;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 0.1px;
+        z-index: 1000;
+        transition: top 0.5s ease-out;
+        margin-bottom: 50px; /* 增加一个空隙 */
         }
 
 
         .banner {
-            display: flex;
-            margin: 20px;
-            border-bottom: 1px solid gray   ;
-            padding-left: 20px;
+            position: fixed;
+    top: 60px; /*这是让标题和导航之间保持正常的距离*/
+    width: 100%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+    z-index: 1000;
+    transition: top 0.5s ease-out;
         }
 
         .banner-item {
-            text-align: left;
             padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
         }
 
         .container {
@@ -115,17 +118,33 @@
         .active-img{
             width: 100%;
         }
-        .desc{
-            color: pink;
-            top: 10px;
-
-            font-weight: bold;
+        .welcome{/*原来的desc欢迎语*/
             position: fixed;
-            text-align: center;
-            font-size: 16px;
-            opacity: 1;
-            transition: opacity 0.5s;
+    top: 100px;
+    width: 100%;
+    background-color: #444;
+    color: white;
+    text-align: center;
+    padding: 1em; /*这是改变欢迎语的宽度的*/
+    z-index: 1001;
+    transition: opacity 1s ease-out;
+    margin-top: 3px; /* 删除空隙 */
+    margin-bottom: 20px; /* 增加一个空隙 */
         }
+
+        .welcome.fade-out {
+            opacity: 0;
+        }
+
+        .welcome-section {
+            text-align: center;
+            padding: 5em 0;
+            background-image: url('welcome.jpg');
+            background-size: cover;
+            color: white;
+            transition: opacity 1s ease-out;
+        }
+
         body{
             height: 100%;
                 }
@@ -174,7 +193,7 @@
             </div>
         </div>
 
-        <div class="desc" id="fadeText">
+        <div class="welcome" id="welcome">
             We're delighted to have you here. At Sue's FundHub, we connect passionate fundraisers with generous donors to support meaningful causes!
         </div>
        
