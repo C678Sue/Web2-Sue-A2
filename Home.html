@@ -26,22 +26,29 @@
         .banner {
             position: fixed;
             top: 50px;
-            /*这是让标题和导航之间保持正常的距离*/
             width: 100%;
             background-color: #333;
             color: white;
             display: flex;
             justify-content: space-around;
-            padding: 1em;
+            padding: 10px 20px;
             z-index: 1000;
             transition: top 0.5s ease-out;
         }
 
-        .banner-item {
+        .nav-item {
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover {
+            background-color: lightgray;
+        }
+
+        .nav-item.active {
+            background-color: gray;
+            color: white;
         }
 
         .container {
@@ -169,10 +176,6 @@
             height: 100%;
         }
 
-        .item1 {
-            border: 2px solid gray;
-            border-bottom: none;
-        }
 
         .footer-tips {
             display: flex;
@@ -199,7 +202,7 @@
             /* 设置边框 */
         }
 
-        .concat {
+        .cont {
             display: flex;
             font-size: 20px;
             justify-content: center;
@@ -227,10 +230,10 @@
 <body>
     <div class="title">Sue's FundHub</div>
     <div class="banner">
-        <div class="banner-item item1" onclick="toIndex()">
+        <div class="nav-item" onclick="toIndex()" id="home">
             筹款活动
         </div>
-        <div class="banner-item item2" onclick="toSearch()">
+        <div class="nav-item" onclick="toSearch()" id="search">
             活动搜索
         </div>
     </div>
@@ -250,7 +253,7 @@
     </div>
     <div class="footer">
         <div class="footer-tips">YOU CAN CONTACT US BY</div>
-        <div class="concat">
+        <div class="cont">
             <div class="contact-item">QQ: <span class="footer-item">2685781399</span></div>
             <div class="contact-item">Email: <span class="footer-item">2685781399@qq.com</span></div>
             <div class="contact-item">Phone: <span class="footer-item">15831998296</span></div>

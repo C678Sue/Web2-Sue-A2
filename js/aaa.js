@@ -12,6 +12,18 @@ window.addEventListener('scroll', function() {
         welcomeSection.classList.remove('fade-out');
     }
 });
+
+const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navItems.forEach(nav => nav.classList.remove('.nav-item.active'));
+                item.classList.add('.nav-item.active');
+            });
+        });
+
+        // 保持Home按钮在页面加载时为active状态
+        document.getElementById('home').classList.add('.nav-item.active');
+        document.getElementById('search').classList.add('.nav-item.active');
  
  //  活动数据
  let list = []
