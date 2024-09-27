@@ -185,6 +185,18 @@
             border: 1px solid gray;
             padding-bottom: 20px;
             width: 100%;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 4px;
+            z-index: 1000;
+            margin: 0;
+            font-size: 20px;
+            /* 根据需要调整字体大小 */
+            border: 1px solid #000;
+            /* 设置边框 */
         }
 
         .concat {
@@ -196,7 +208,18 @@
         .footer-item {
             text-decoration: underline;
             margin-right: 20px;
+            
+            /* 设置边框 */
+            padding: 10px;
+            /* 内边距 */
+            margin: 10px 0;
+            /* 外边距 */
 
+        }
+
+        .contact-item {
+            margin-bottom: 5px;
+            /* 每个联系方式之间的间距 */
         }
     </style>
 </head>
@@ -226,13 +249,12 @@
 
     </div>
     <div class="footer">
-        <div class="footer-tips"> YOU CAN CONCAT US BY</div>
+        <div class="footer-tips">YOU CAN CONTACT US BY</div>
         <div class="concat">
-            <div>QQ: <span class="footer-item">1234567890</span></div>
-            <div>Email:<span class="footer-item">1234567890@gmail.com</span></div>
-            <div>Phone:<span class="footer-item">1234567890</span></div>
+            <div class="contact-item">QQ: <span class="footer-item">2685781399</span></div>
+            <div class="contact-item">Email: <span class="footer-item">2685781399@qq.com</span></div>
+            <div class="contact-item">Phone: <span class="footer-item">15831998296</span></div>
         </div>
-
     </div>
     <div id="bottom"></div>
     <script src="./jquery.js"></script>
