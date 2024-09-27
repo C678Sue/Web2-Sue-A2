@@ -7,37 +7,41 @@
     <title>Home</title>
     <style>
         .title {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 0.1px;
-        z-index: 1000;
-        transition: top 0.5s ease-out;
-        margin-bottom: 50px; /* 增加一个空隙 */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.1px;
+            z-index: 1000;
+            transition: top 0.5s ease-out;
+            margin: 0;
+            font-size: 40px;
+            /*标题字的大小*/
         }
 
 
         .banner {
             position: fixed;
-    top: 60px; /*这是让标题和导航之间保持正常的距离*/
-    width: 100%;
-    background-color: #333;
-    color: white;
-    display: flex;
-    justify-content: space-around;
-    padding: 1em;
-    z-index: 1000;
-    transition: top 0.5s ease-out;
+            top: 50px;
+            /*这是让标题和导航之间保持正常的距离*/
+            width: 100%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 1em;
+            z-index: 1000;
+            transition: top 0.5s ease-out;
         }
 
         .banner-item {
             padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
         .container {
@@ -58,26 +62,31 @@
         .intro {
             width: 100%;
         }
-        .text{
-            margin: 20px 0 0 0 ;
+
+        .text {
+            margin: 20px 0 0 0;
             text-indent: 2rem;
         }
-        .list-item{
+
+        .list-item {
             margin-top: 20px;
             background-color: rgb(203, 201, 201);
             border-radius: 20px;
             padding: 20px;
         }
-        .list-item-text{
+
+        .list-item-text {
             margin: 30px;
         }
-        .menu{
+
+        .menu {
             position: fixed;
             right: 0;
             top: 50%;
-            transform: translate(0,-50%);
+            transform: translate(0, -50%);
         }
-        .menu-item{
+
+        .menu-item {
             width: 100px;
             height: 50px;
             background-color: rgb(120, 138, 138);
@@ -88,26 +97,31 @@
             margin-top: 2px;
             color: white;
         }
-        .active-info{
+
+        .active-info {
             display: flex;
             border: 1px solid gray;
-             margin: 20px 0;
-            
+            margin: 20px 0;
+
         }
-        .left{
+
+        .left {
             width: 70%;
             border-left: 1px solid gray;
             padding: 20px;
         }
-        .line{
+
+        .line {
             flex: 1;
             border-bottom: 1px solid gray;
         }
-        .left-item{
+
+        .left-item {
             display: flex;
             margin: 10px 0;
         }
-        .right{
+
+        .right {
             width: 30%;
             border-right: 1px solid gray;
             display: flex;
@@ -115,21 +129,27 @@
             align-items: center;
             padding: 20px;
         }
-        .active-img{
+
+        .active-img {
             width: 100%;
         }
-        .welcome{/*原来的desc欢迎语*/
+
+        .welcome {
+            /*原来的desc欢迎语*/
             position: fixed;
-    top: 100px;
-    width: 100%;
-    background-color: #444;
-    color: white;
-    text-align: center;
-    padding: 1em; /*这是改变欢迎语的宽度的*/
-    z-index: 1001;
-    transition: opacity 1s ease-out;
-    margin-top: 3px; /* 删除空隙 */
-    margin-bottom: 20px; /* 增加一个空隙 */
+            top: 100px;
+            width: 100%;
+            background-color: #444;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            /*这是改变欢迎语的宽度的*/
+            z-index: 1001;
+            transition: opacity 1s ease-out;
+            margin-top: 3px;
+            /* 删除空隙 */
+            margin-bottom: 20px;
+            /* 增加一个空隙 */
         }
 
         .welcome.fade-out {
@@ -145,14 +165,15 @@
             transition: opacity 1s ease-out;
         }
 
-        body{
+        body {
             height: 100%;
-                }
-                .item1{
-                    border: 2px solid gray;
-                    border-bottom: none;
-                }
-                
+        }
+
+        .item1 {
+            border: 2px solid gray;
+            border-bottom: none;
+        }
+
         .footer-tips {
             display: flex;
             justify-content: center;
@@ -177,32 +198,32 @@
             margin-right: 20px;
 
         }
-
     </style>
 </head>
 
 <body>
+    <div class="title">Sue's FundHub</div>
+    <div class="banner">
+        <div class="banner-item item1" onclick="toIndex()">
+            筹款活动
+        </div>
+        <div class="banner-item item2" onclick="toSearch()">
+            活动搜索
+        </div>
+    </div>
+
+    <div class="welcome" id="welcome">
+        We're delighted to have you here. At Sue's FundHub, we connect passionate fundraisers with generous donors to
+        support meaningful causes!
+    </div>
     <div class="container" id="top">
-        <div class="title">Sue's FundHub</div>
-        <div class="banner">
-            <div class="banner-item item1" onclick="toIndex()">
-                筹款活动
-            </div>
-            <div class="banner-item item2"  onclick="toSearch()">
-                活动搜索
+        <!--这儿删除了title、欢迎语以及导航，使得这些能成100%-->
+        <div class="intro">
+            <div class="list">
+
             </div>
         </div>
 
-        <div class="welcome" id="welcome">
-            We're delighted to have you here. At Sue's FundHub, we connect passionate fundraisers with generous donors to support meaningful causes!
-        </div>
-       
-        <div class="intro">
-            <div class="list">
-              
-            </div>
-        </div>
-        
     </div>
     <div class="footer">
         <div class="footer-tips"> YOU CAN CONCAT US BY</div>
