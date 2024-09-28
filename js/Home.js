@@ -43,11 +43,12 @@ function showList() {
 
     for (let i = 0; i < list.length; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
-           <div class="right">
-             <img class="active-img"
-             src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
-             alt="">
-         </div>
+    <div class="right">
+        <img class="active-img"
+        src="./images/${i+1}.jpg"
+        alt="">
+    </div>
+
          <div class="left">
          <div class="left-item"><div>Caption：</div><div class="line">${list[i].TITLE}</div></div>
              <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
@@ -57,7 +58,7 @@ function showList() {
              <div class="left-item"><div>City：</div><div class="line">${list[i].CITY}</div></div>
              <div class="left-item"><div>Category：</div><div class="line">${list[i].NAME}</div></div>
          </div>
-       
+         
      </div>`
         html += temp
     }

@@ -7,15 +7,34 @@
     <title>Search fundraisers</title>
     <style>
         .title {
-            font-size: 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #333;
+            color: white;
             text-align: center;
-            font-weight: bold;
-            margin-bottom: 30px;
+            padding: 0.1px;
+            z-index: 1000;
+            transition: top 0.5s ease-out;
+            margin: 0;
+            font-size: 40px;
+            /*标题字的大小*/
         }
 
+
         .banner {
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            background-color: #333;
+            color: white;
             display: flex;
-            border-bottom: 1px solid gray   ;
+            justify-content: space-around;
+            padding: 10px 20px;
+            z-index: 1000;
+            transition: top 0.5s ease-out;
+            font-size: 20px;
         }
 
         .banner-item {
@@ -23,9 +42,29 @@
             padding: 10px;
         }
 
+        .nav-item {
+            padding: 10px;
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover {
+            background-color: #555;
+            /* 调整悬停时的背景颜色 */
+            color: #ddd;
+            /* 调整悬停时的文字颜色 */
+        }
+
+        .nav-item.active {
+            background-color: gray;
+            color: white;
+        }
+
         .item1{
-                    border: 2px solid gray;
-                    border-bottom: none;
+            border: 2px solid gray;
+            border-bottom: none;
                 }
         .container {
             width: 1000px;
@@ -169,6 +208,7 @@
         }
         .form-item{
             margin: 20px 0;
+            margin-top: 40px;
         }
         button{
             width: 100px;
@@ -179,18 +219,15 @@
 
 <body>
     <div class="container" id="top">
-        <div class="title">欢迎语</div>
-        <h2 class="desc">
-            Welcome to 筹款活动 Web
-        </h2>
-        <div class="banner">
-            <div class="banner-item item2" onclick="toIndex()">
-                筹款活动
-            </div>
-            <div class="banner-item item1"  >
-                活动搜索
-            </div>
+        <div class="title">Sue's FundHub</div>
+    <div class="banner">
+        <div class="nav-item" onclick="toIndex()" id="home">
+            Home
         </div>
+        <div class="nav-item" onclick="toSearch()" id="search">
+            Search fundraisers
+        </div>
+    </div>
         <div class="">
             <div class="form-item">
                 城市名称： <input class="CITY" type="text" name="" id="">
@@ -201,10 +238,10 @@
             <div class="form-item">
                 活动类型 ：
                 <select class="CATEGORY_ID">
-                    <option value="">请选择</option>
-                    <option value="1">Education</option>
-                    <option value="2">Health</option>
-                    <option value="3">Environment</option>
+                    <option value="">Please choose</option>
+                    <option value="1">Basic Needs Assistance</option>
+                    <option value="2">Education</option>
+                    <option value="3">Medical Assistance</option>
                 </select>
             </div>
             <div><button class="button" onclick="search()">
