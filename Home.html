@@ -34,16 +34,22 @@
             padding: 10px 20px;
             z-index: 1000;
             transition: top 0.5s ease-out;
+font-size: 20px;
         }
 
         .nav-item {
             padding: 10px;
+            flex: 1;
+            text-align: center;
             cursor: pointer;
             transition: background-color 0.3s;
         }
 
         .nav-item:hover {
-            background-color: lightgray;
+            background-color: #555;
+            /* 调整悬停时的背景颜色 */
+            color: #ddd;
+            /* 调整悬停时的文字颜色 */
         }
 
         .nav-item.active {
@@ -68,6 +74,7 @@
 
         .intro {
             width: 100%;
+            margin-top: 200px;
         }
 
         .text {
@@ -153,10 +160,11 @@
             /*这是改变欢迎语的宽度的*/
             z-index: 1001;
             transition: opacity 1s ease-out;
-            margin-top: 3px;
+            margin-top: 0;
             /* 删除空隙 */
             margin-bottom: 20px;
             /* 增加一个空隙 */
+
         }
 
         .welcome.fade-out {
@@ -181,7 +189,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100px;
+            height: 90px;
         }
 
         .footer {
@@ -200,6 +208,7 @@
             /* 根据需要调整字体大小 */
             border: 1px solid #000;
             /* 设置边框 */
+
         }
 
         .cont {
@@ -211,7 +220,7 @@
         .footer-item {
             text-decoration: underline;
             margin-right: 20px;
-            
+
             /* 设置边框 */
             padding: 10px;
             /* 内边距 */
@@ -231,10 +240,10 @@
     <div class="title">Sue's FundHub</div>
     <div class="banner">
         <div class="nav-item" onclick="toIndex()" id="home">
-            筹款活动
+            Home
         </div>
         <div class="nav-item" onclick="toSearch()" id="search">
-            活动搜索
+            Search fundraisers
         </div>
     </div>
 
@@ -242,6 +251,9 @@
         We're delighted to have you here. At Sue's FundHub, we connect passionate fundraisers with generous donors to
         support meaningful causes!
     </div>
+
+
+
     <div class="container" id="top">
         <!--这儿删除了title、欢迎语以及导航，使得这些能成100%-->
         <div class="intro">
