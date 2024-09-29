@@ -3,11 +3,34 @@
 let list = []
 //  获取所有活动
 function getList(params) {
-    $.get('http://localhost:3000/api/search', params, function (data, status) {
-        console.log(data);
+
+
+
+var url = `http://localhost:3000/api/search?a=1`
+    if(params.CITY){
+        url += `&CITY=${params.CITY}`
+    }
+    if(params.CIORGANIZERTY){
+        url += `&CIORGANIZERTY=${params.ORGANIZER}`
+    }
+    if(params.CATEGORY_ID){
+        url += `&CATEGORY_ID=${params.CATEGORY_ID}`
+    }
+    fetch(url, {
+        method: 'GET', // 默认值就是 GET，所以其实可以省略
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data); 
         list = data;
-        showList()
-    });
+        showList(list)
+      })
+
 
 }
 //这是新加的代码
@@ -58,27 +81,28 @@ function toDetail(id) {
 }
 //  搜索按钮
 function search() {
-    var CITY = $(".CITY").val();
-    var ORGANIZER = $(".ORGANIZER").val();
-    var CATEGORY_ID = $(".CATEGORY_ID").val();
-    if (!ORGANIZER && !CITY && !CATEGORY_ID) {
-        return alert('至少输入一个条件')
-    }
+    var CITY = document.querySelector('.CITY').value;
+    var ORGANIZER = document.querySelector('.ORGANIZER').value;
+    var CATEGORY_ID =document.querySelector('.CATEGORY_ID').value;
+  
     let params = {
         ORGANIZER: ORGANIZER,
         CITY: CITY,
         CATEGORY_ID: CATEGORY_ID
+    }
+    if (!ORGANIZER && !CITY && !CATEGORY_ID) {
+        return alert('至少输入一个条件')
     }
     getList(params)
 
 }
 //  清楚下拉框数据
 function clearChechboxes() {
-    $(".CITY").val('')
-    $(".ORGANIZER").val('')
-    $(".CATEGORY_ID").val('')
-}
+    document.querySelector('.CATEGORY_ID').value = '';
+    document.querySelector('.CITY').value = '';
+    document.querySelector('.ORGANIZER').value = '';
 //  展示活动列表
+}
 function showList() {
     let html = '';
 
@@ -103,7 +127,8 @@ function showList() {
             </div>`
         html += temp
     }
-    $(".list").html(html)
+    let ele = document.querySelector('.list')
+    ele.innerHTML = html
 }
 
 

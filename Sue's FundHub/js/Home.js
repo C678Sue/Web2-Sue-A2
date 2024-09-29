@@ -28,29 +28,37 @@ navItems.forEach(item => {
 let list = []
 //  获取所有活动
 function getActiveList() {
-    $.get('http://localhost:3000/api/all', function (data, status) {
-        console.log(data);
-        list = data;
-        showList()
-    });
+
+    fetch('http://localhost:3000/api/all', {
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            list = data;
+            renderList()
+        })
 
 }
 
 
+
 getActiveList()
 //  展示活动列表
-function showList() {
+function renderList() {
     let html = '';
 
     for (let i = 0; i < list.length; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
     <div class="right">
         <img class="active-img"
-        src="./images/${i+1}.jpg"
+        src="./images/${i + 1}.jpg"
         alt="">
     </div>
     
-
          <div class="left">
          <div class="left-item"><div>Caption：</div><div class="line">${list[i].TITLE}</div></div>
              <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
@@ -64,7 +72,8 @@ function showList() {
      </div>`
         html += temp
     }
-    $(".list").html(html)
+    var ele = document.querySelector('.arr')
+    ele.innerHTML = (html)
 }
 //   跳转到搜索页面
 function toSearch() {

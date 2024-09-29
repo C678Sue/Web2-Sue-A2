@@ -5,14 +5,31 @@ console.log(id)
 let list = []
 //  获取所有活动
 function getList(params) {
-    $.get('http://localhost:3000/api/id', params, function (data, status) {
+
+
+    fetch('http://localhost:3000/api/id?FUNDRAISER_ID='+params.FUNDRAISER_ID, {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+      })
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
         console.log(data);
         list = data;
-        showList()
-    });
+        showList(list)
+      })
 
 }
+const navItems = document.querySelectorAll('.nav-item');
 
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navItems.forEach(nav => nav.classList.remove('active'));
+        item.classList.add('active');
+    });
+});
 
 
 getList({ FUNDRAISER_ID: id })
@@ -43,7 +60,8 @@ function showList() {
                   </div>`;
     }
 
-    $(".show-area").html(html)
+    var ele = document.querySelector('.show-area')
+    ele.innerHTML = (html)
 }
 
 // 捐赠
@@ -54,4 +72,9 @@ function juanzeng() {
 function back() {
     location.href = 'Search fundraisers.html'
 }
-
+function toSearch() {
+    window.location.href = 'Search fundraisers.html'
+}
+function toIndex() {
+    window.location.href = 'Home.html'
+}

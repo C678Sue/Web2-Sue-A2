@@ -4,33 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fundariser</title>
+
     <style>
         .title {
-            font-size: 30px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+            background-color: #333;
+            color: white;
             text-align: center;
-            font-weight: bold;
-            margin-bottom: 30px;
+            padding: 0.1px;
+            z-index: 1000;
+            transition: top 0.5s ease-out;
+            margin: 0;
+            font-size: 40px;
+            /*标题字的大小*/
+            text-shadow: 1px 1px #ffffff, 2px 2px #ea987c, 3px 3px #f1baa6;
         }
 
         .banner {
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            background-color: #333;
+            color: white;
             display: flex;
-            justify-content: center;
-            margin: 20px;
+            justify-content: space-around;
+            padding: 10px 20px;
+            z-index: 1000;
+            transition: top 0.5s ease-out;
+            font-size: 20px;
         }
 
-        .banner-item {
-            width: 200px;
-            text-align: center;
+        .nav-item {
             padding: 10px;
-            background-color: aquamarine;
-            border: 1px solid rgb(215, 213, 213);
+            flex: 1;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-item:hover {
+            background-color: #555;
+            /* 调整悬停时的背景颜色 */
+            color: #ddd;
+            /* 调整悬停时的文字颜色 */
+        }
+
+        .nav-item.active {
+            background-color: gray;
+            color: white;
         }
 
         .container {
             width: 1000px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px;
+            margin-left: 80px;
         }
 
         .active-img {
@@ -49,8 +80,13 @@
             margin: 0 auto;
         }
 
-        .center {
+        .detail-title {
             text-align: center;
+            margin-top: 100px;
+            font-size: 30px;
+            color: #99b0f7;
+            text-shadow: 2px 6px 10px #c9d9fa;
+            font-weight: bold;
         }
 
         .intro {
@@ -93,14 +129,23 @@
             color: white;
         }
 
+        .center {
+            text-align: center;
+        }
+
+
+
+        .button-area,
+        .show-area {
+            text-align: right;
+        }
+
         .img {
             width: 30%;
             margin: 0 auto;
         }
 
-        .center {
-            text-align: center;
-        }
+
 
         .footer-tips {
             display: flex;
@@ -128,8 +173,6 @@
 
         }
 
-        .button-area {
-        }
 
         .button {
             width: 100px;
@@ -145,49 +188,69 @@
             font-size: 20px;
             color: rgb(89, 110, 247);
         }
-        .detail{
-            text-align: center;     
-            padding: 30px;     
+
+        .detail {
+            text-align: center;
+            padding: 30px;
         }
-        .left{
+
+        .left {
             text-align: left;
             width: 50%;
-            margin:  0 auto;
+            margin: 0 auto;
+            margin-left: 20px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container" id="top">
-        <div class="title">Fundraiser details</div>
+
+    <div class="title">Sue's FundHub</div>
+    <div class="banner">
+        <div class="nav-item" onclick="toIndex()" id="home">
+            Home
+        </div>
+        <div class="nav-item" onclick="toSearch()" id="search">
+            Search fundraisers
+        </div>
+    </div>
+    <!--这是在上边加每个众筹的标题-->
+    <div class="detail-title">Disaster Relief Fund</div>
+
+    <div class="left">
+        <img class="img"
+            src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960" alt="">
+
+
+    </div>
+
+
+        <div class="container" id="top">
+        </div>
 
         <div class="show-area">
 
-
-        </div>
-        <div class="center">
-            <img class="img"
-                 src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
-                     alt="">
-            <img class="img"
-                 src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
-                     alt="">
-             <img class="img"
-                 src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
-                     alt="">
-
-        </div>
-        <div class="intro">
-            <div class="text">
-                我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，我是活动介绍，
-            </div>
 
         </div>
         <div class="button-area">
             <button class="button" onclick="juanzeng()">捐赠</button>
             <button class="button" onclick="back()">返回</button>
         </div>
-        <!-- <div class="footer">
+
+    <div class="intro">
+        <div class="text">
+            In the face of natural disasters, each of us can be a victim. The Disaster Relief Fund is committed to
+            providing emergency assistance in the immediate aftermath of a disaster to help people rebuild their homes
+            and lives. Every donation you make will go directly to providing emergency relief supplies such as food,
+            medical supplies, temporary shelter, and more.
+
+            Join us in igniting a ray of hope for those in need. Your donation will bring new hope and strength to
+            countless families.
+        </div>
+
+    </div>
+
+    <!-- <div class="footer">
             <div class="footer-tips"> YOU CAN CONCAT US BY</div>
             <div class="concat">
                 <div>QQ: <span class="footer-item">1234567890</span></div>
@@ -200,7 +263,6 @@
 
 
     <div id="bottom"></div>
-    <script src="./jquery.js"></script>
     <script src="./js/Fundraiser.js"></script>
 </body>
 
