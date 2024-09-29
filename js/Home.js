@@ -1,3 +1,4 @@
+//这是新加的代码！！！
 window.addEventListener('scroll', function () {
     const welcomeMessage = document.getElementById('welcome');
     const welcomeSection = document.querySelector('.welcome-section');
@@ -20,7 +21,7 @@ navItems.forEach(item => {
         navItems.forEach(nav => nav.classList.remove('active'));
         item.classList.add('active');
     });
-});
+});//直到这儿
 
 
 //  活动数据

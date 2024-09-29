@@ -62,17 +62,25 @@
             color: white;
         }
 
-        .item1{
-            border: 2px solid gray;
-            border-bottom: none;
-                }
         .container {
             width: 1000px;
             margin: 0 auto;
+            padding: 20px;
         }
-        .desc{
-            margin: 20px;
+
+        .CATEGORY_ID {
+            font-size: 14px;
+            /* 调整为你需要的大小 */
+        }
+
+        .error-message {
+            color: red;
             font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+            /* Initially hidden */
         }
 
         .img {
@@ -172,54 +180,106 @@
             width: 100%;
         }
 
-        .desc {
-            margin: 20px;
-        }
+
 
         body {
             height: 100%;
         }
-        .tips{
+
+        .tips {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 200px;
         }
-        .footer-tips{
+
+        .footer-tips {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100px;
         }
-        .footer{
+
+        .footer {
             border: 1px solid gray;
             padding-bottom: 20px;
             width: 100%;
         }
-        .concat{
+
+        .concat {
             display: flex;
             font-size: 20px;
             justify-content: center;
         }
-        .footer-item{
+
+        .footer-item {
             text-decoration: underline;
             margin-right: 20px;
-            
+
         }
-        .form-item{
-            margin: 20px 0;
-            margin-top: 40px;
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding-top: 130px;
+            /* 增加父容器的 padding-top */
+            font-size: 25px;
         }
-        button{
+
+        .form-item {
+            margin: 10px 0;
+            /* 减少上下间距 */
+        }
+
+        .form-item label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-item input,
+        .form-item select {
+            width: 300px;
+            /* 固定输入框宽度 */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .form-item label {
+            display: inline-block;
+            width: 100px;
+            /* 固定标签宽度 */
+            text-align: left;
+            /* 标签左对齐 */
+            margin-right: 40px;
+            /* 标签和输入框之间的间距 */
+        }
+
+        .form-item input:focus,
+        .form-item select:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        .form-item select option:hover {
+            background-color: #d3d3d3;
+            /* 浅灰色 */
+        }
+
+        button {
             width: 100px;
             height: 30px;
+            font-size: 16px;
         }
     </style>
 </head>
 
 <body>
-    <div class="container" id="top">
-        <div class="title">Sue's FundHub</div>
+    <div class="title">Sue's FundHub</div>
     <div class="banner">
         <div class="nav-item" onclick="toIndex()" id="home">
             Home
@@ -228,32 +288,41 @@
             Search fundraisers
         </div>
     </div>
-        <div class="">
-            <div class="form-item">
-                城市名称： <input class="CITY" type="text" name="" id="">
-            </div>
-            <div class="form-item">
-                发起人： <input class="ORGANIZER" type="text" name="" id="">
-            </div>
-            <div class="form-item">
-                活动类型 ：
-                <select class="CATEGORY_ID">
-                    <option value="">Please choose</option>
-                    <option value="1">Basic Needs Assistance</option>
-                    <option value="2">Education</option>
-                    <option value="3">Medical Assistance</option>
-                </select>
-            </div>
-            <div><button class="button" onclick="search()">
-            search    
+    <div class="form-container">
+        <div class="form-item">
+            <label for="city">City：</label> <input class="CITY" type="text" name="" id="">
+        </div>
+        <div class="form-item">
+
+            <label for="organizer">Organizer：</label> <input class="ORGANIZER" type="text" name="" id="">
+        </div>
+        <div class="form-item">
+
+            <label for="category">Category: </label>
+            <select class="CATEGORY_ID">
+                <option value="">Please choose</option>
+                <option value="1">Basic Needs Assistance</option>
+                <option value="2">Education</option>
+                <option value="3">Medical Assistance</option>
+            </select>
+        </div>
+        <div><button class="button" onclick="search()">
+                search
             </button>
-                <button class="button" onclick="clearChechboxes()">clear</button>
-            </div>
-            <div></div>
+            <button class="button" onclick="clearChechboxes()">clear</button>
         </div>
-        <div class="list">
-            <div class="tips">您还未搜索！</div>
-        </div>
+        <div></div>
+    </div>
+    <div class="list">
+        <div class="tips">您还未搜索！</div>
+    </div>
+
+    <div class="error-message" id="error-message">
+        No fundraisers are found.
+    </div>
+
+    <div class="container" id="top">
+
     </div>
     <div id="bottom"></div>
     <script src="./jquery.js"></script>
