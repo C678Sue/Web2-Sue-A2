@@ -20,6 +20,7 @@
             margin: 0;
             font-size: 40px;
             /*标题字的大小*/
+            text-shadow: 1px 1px #ffffff, 2px 2px #ea987c, 3px 3px #f1baa6;
         }
 
 
@@ -66,6 +67,15 @@
             width: 1000px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        .search-title {
+            padding-top: 30px;
+            text-align: center;
+            padding-bottom: 30px;
+            font-size: 30px;
+            color: #99b0f7;
+            text-shadow: 0 8px 10px #c9d9fa;
         }
 
         .CATEGORY_ID {
@@ -219,17 +229,21 @@
         }
 
         .form-container {
+            text-align: center;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding-top: 130px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             /* 增加父容器的 padding-top */
             font-size: 25px;
+            width: 40%;
+            margin: 0 auto; /* 使容器水平居中 */
+            margin-top: 180px;
+            margin-bottom: 50px;
         }
 
         .form-item {
-            margin: 10px 0;
+            margin: 5px 0;
             /* 减少上下间距 */
         }
 
@@ -237,6 +251,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+
         }
 
         .form-item input,
@@ -247,6 +262,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
+  
         }
 
         .form-item label {
@@ -261,13 +277,28 @@
 
         .form-item input:focus,
         .form-item select:focus {
-            border-color: #007BFF;
+            border-color: #76a9e0;
             outline: none;
         }
 
         .form-item select option:hover {
             background-color: #d3d3d3;
             /* 浅灰色 */
+        }
+
+        .right {
+            width: 30%;
+            border-right: 1px solid gray;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            /* 使图片垂直排列 */
+            align-items: center;
+            /* 居中对齐 */
+            object-fit: cover;
         }
 
         button {
@@ -288,7 +319,11 @@
             Search fundraisers
         </div>
     </div>
+
+    
+
     <div class="form-container">
+        <div class="search-title">Search fundraisers</div>
         <div class="form-item">
             <label for="city">City：</label> <input class="CITY" type="text" name="" id="">
         </div>
@@ -314,7 +349,7 @@
         <div></div>
     </div>
     <div class="list">
-        <div class="tips">您还未搜索！</div>
+        <div class="tips">You haven't searched yet!</div>
     </div>
 
     <div class="error-message" id="error-message">

@@ -105,6 +105,9 @@ function showList() {
     }
     $(".list").html(html)
 }
+
+
+
 //   跳转到首页
 function toIndex() {
     window.location.href = 'Home.html'

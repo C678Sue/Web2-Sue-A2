@@ -12,9 +12,21 @@ function getList(params) {
     });
 
 }
+
+
+
 getList({ FUNDRAISER_ID: id })
 function showList() {
     let html = '';
+
+    /*for (let i = 0; i < list.length; i++) {
+        let temp = `<div class="active-info" id='active${i + 1}'>
+    <div class="right">
+        <img class="active-img"
+        src="./images/${i+1}.jpg"
+        alt="">
+    </div>
+*/
     for (let i = 0; i < list.length; i++) {
         html = `
                 <div class="detail">
@@ -36,7 +48,7 @@ function showList() {
 
 // 捐赠
 function juanzeng() {
-    alert('功能正在开发中')
+    alert('This feature is under contruction')
 }
 // 捐赠
 function back() {

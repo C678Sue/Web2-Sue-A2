@@ -49,6 +49,7 @@ function showList() {
         src="./images/${i+1}.jpg"
         alt="">
     </div>
+    
 
          <div class="left">
          <div class="left-item"><div>Caption：</div><div class="line">${list[i].TITLE}</div></div>
