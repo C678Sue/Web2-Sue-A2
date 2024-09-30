@@ -6,30 +6,30 @@ function getList(params) {
 
 
 
-var url = `http://localhost:3000/api/search?a=1`
-    if(params.CITY){
-        url += `&CITY=${params.CITY}`
+    var url = `http://localhost:3000/api/search?a=1`
+    if (params.CITY) {
+        url += `&CITY=${params.CITY}`;
     }
-    if(params.CIORGANIZERTY){
-        url += `&CIORGANIZERTY=${params.ORGANIZER}`
+    if (params.ORGANIZER) {
+        url += `&ORGANIZER=${params.ORGANIZER}`;
     }
-    if(params.CATEGORY_ID){
-        url += `&CATEGORY_ID=${params.CATEGORY_ID}`
+    if (params.CATEGORY_ID) {
+        url += `&CATEGORY_ID=${params.CATEGORY_ID}`;
     }
     fetch(url, {
         method: 'GET', // 默认值就是 GET，所以其实可以省略
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
-      })
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data); 
-        list = data;
-        showList(list)
-      })
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            list = data;
+            showList(list)
+        })
 
 
 }
@@ -43,38 +43,6 @@ navItems.forEach(item => {
     });
 });
 
-function search() {
-    const city = document.getElementById('city').value;
-    const organizer = document.getElementById('organizer').value;
-    const category = document.getElementById('category').value;
-
-    // Simulate a database query result
-    const database = [
-        { city: 'New York', organizer: 'John Doe', category: '1' },
-        { city: 'Los Angeles', organizer: 'Jane Smith', category: '2' }
-    ];
-
-    const hasMatchingFundraisers = database.some(fundraiser =>
-        fundraiser.city === city &&
-        fundraiser.organizer === organizer &&
-        fundraiser.category === category
-    );
-
-    const errorMessage = document.getElementById('error-message');
-    if (!hasMatchingFundraisers) {
-        errorMessage.style.display = 'block';
-    } else {
-        errorMessage.style.display = 'none';
-    }
-}
-
-function clearCheckboxes() {
-    document.getElementById('city').value = '';
-    document.getElementById('organizer').value = '';
-    document.getElementById('category').value = '';
-    document.getElementById('error-message').style.display = 'none';
-}//直到这儿
-
 //   跳转到详情页面
 function toDetail(id) {
     localStorage.setItem('id', id)
@@ -83,8 +51,8 @@ function toDetail(id) {
 function search() {
     var CITY = document.querySelector('.CITY').value;
     var ORGANIZER = document.querySelector('.ORGANIZER').value;
-    var CATEGORY_ID =document.querySelector('.CATEGORY_ID').value;
-  
+    var CATEGORY_ID = document.querySelector('.CATEGORY_ID').value;
+
     let params = {
         ORGANIZER: ORGANIZER,
         CITY: CITY,
@@ -101,17 +69,21 @@ function clearChechboxes() {
     document.querySelector('.CATEGORY_ID').value = '';
     document.querySelector('.CITY').value = '';
     document.querySelector('.ORGANIZER').value = '';
-//  展示活动列表
+    //  展示活动列表
 }
 function showList() {
     let html = '';
-
+    if (list.length == 0) {
+        let list = document.querySelector('.list')
+        list.innerHTML = ` <div class="tips red">No relevant information found</div>`
+        return
+    }
     for (let i = 0; i < list.length; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
-                  <div class="right">
+                <div class="right">
                     <img class="active-img"
-                    src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960"
-                    alt="">
+                        src="${list[i].PICTURES}"
+                        alt="">
                 </div>
                 <div class="left">
                     <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
@@ -123,8 +95,9 @@ function showList() {
                     <div class="left-item"><div>城市：</div><div class="line">${list[i].CITY}</div></div>
                     <div class="left-item"><div>类型：</div><div class="line">${list[i].NAME}</div></div>
                 </div>
-              
-            </div>`
+
+                 </div>`
+
         html += temp
     }
     let ele = document.querySelector('.list')

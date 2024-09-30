@@ -45,6 +45,7 @@ function showList() {
     </div>
 */
     for (let i = 0; i < list.length; i++) {
+
         html = `
                 <div class="detail">
                     <div class='left'>
@@ -57,6 +58,7 @@ function showList() {
                     <div>活动类型：<span class="show">${list[i].NAME}</span></div>
              
                         </div>
+
                   </div>`;
     }
 

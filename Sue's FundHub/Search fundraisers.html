@@ -83,14 +83,16 @@
             /* 调整为你需要的大小 */
         }
 
-        .error-message {
-            color: red;
+        .red {
             font-weight: bold;
-            font-size: 1.2em;
-            text-align: center;
-            margin-top: 20px;
-            display: none;
-            /* Initially hidden */
+            color: red;
+        }
+
+        .tips {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
         }
 
         .img {
@@ -237,7 +239,8 @@
             /* 增加父容器的 padding-top */
             font-size: 25px;
             width: 40%;
-            margin: 0 auto; /* 使容器水平居中 */
+            margin: 0 auto;
+            /* 使容器水平居中 */
             margin-top: 180px;
             margin-bottom: 50px;
         }
@@ -262,7 +265,7 @@
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
-  
+
         }
 
         .form-item label {
@@ -320,19 +323,20 @@
         </div>
     </div>
 
-    
+
 
     <div class="form-container">
         <div class="search-title">Search fundraisers</div>
+
         <div class="form-item">
             <label for="city">City：</label> <input class="CITY" type="text" name="" id="">
         </div>
-        <div class="form-item">
 
+        <div class="form-item">
             <label for="organizer">Organizer：</label> <input class="ORGANIZER" type="text" name="" id="">
         </div>
-        <div class="form-item">
 
+        <div class="form-item">
             <label for="category">Category: </label>
             <select class="CATEGORY_ID">
                 <option value="">Please choose</option>
@@ -341,6 +345,9 @@
                 <option value="3">Medical Assistance</option>
             </select>
         </div>
+
+
+
         <div><button class="button" onclick="search()">
                 search
             </button>
@@ -352,9 +359,6 @@
         <div class="tips">You haven't searched yet!</div>
     </div>
 
-    <div class="error-message" id="error-message">
-        No fundraisers are found.
-    </div>
 
     <div class="container" id="top">
 

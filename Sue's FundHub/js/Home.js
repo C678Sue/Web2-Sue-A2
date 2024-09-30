@@ -51,7 +51,7 @@ getActiveList()
 function renderList() {
     let html = '';
 
-    for (let i = 0; i < list.length; i++) {
+    for (let i = 0; i < 5; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
     <div class="right">
         <img class="active-img"
