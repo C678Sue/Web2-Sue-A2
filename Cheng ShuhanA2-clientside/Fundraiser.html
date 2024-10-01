@@ -6,6 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+        .show-area {
+            width: 80%;
+            margin-top: -60px;
+        }
+
+        .flex {
+            display: flex;
+            width: 60%;
+            margin-left: 20%;
+            margin-bottom: 40px;
+        }
+
         .title {
             position: fixed;
             top: 0;
@@ -57,12 +69,7 @@
             color: white;
         }
 
-        .container {
-            width: 1000px;
-            margin: 0 auto;
-            padding: 15px;
-            margin-left: 80px;
-        }
+
 
         .active-img {
             width: 100%;
@@ -75,23 +82,20 @@
 
         }
 
-        .img {
-            width: 30%;
-            margin: 0 auto;
-        }
-
         .detail-title {
             text-align: center;
-            margin-top: 100px;
+            margin-top: 130px;
             font-size: 30px;
             color: #99b0f7;
             text-shadow: 2px 6px 10px #c9d9fa;
             font-weight: bold;
+            white-space: nowrap;
         }
 
         .intro {
             width: 100%;
             margin: 20px 0;
+            margin-top: 10px;
         }
 
         .text {
@@ -133,12 +137,23 @@
             text-align: center;
         }
 
-
-
-        .button-area,
-        .show-area {
-            text-align: right;
+        .content {
+            color: #2c3e50;
+            font-family: 'Pacifico', cursive;
+            font-size: 18px;
+            margin-top: -130px;
+            margin-left: 180px;
+            /* 向右移动 */
+            width: 37%;
+            text-align: justify;
         }
+
+        .button-area {
+            margin-left: 950px;
+            bottom: -20px;
+        }
+
+
 
         .img {
             width: 30%;
@@ -183,22 +198,39 @@
             color: white;
         }
 
+        
+
         .show {
-            font-weight: bold;
             font-size: 20px;
-            color: rgb(89, 110, 247);
+            color: rgb(17, 17, 18);
+        }
+
+        .infor {
+            color: #7b97eb;
+            font-size: 20px;
+            margin-top: 45px;
+            line-height: 35px;
+            white-space: nowrap;
         }
 
         .detail {
             text-align: center;
-            padding: 30px;
+            margin-top: 50px;
+            margin-left: 80px;
         }
 
         .left {
             text-align: left;
-            width: 50%;
             margin: 0 auto;
             margin-left: 20px;
+        }
+
+        .img2 {
+            width: 52%;
+            height: 55%;
+            margin-top: 50px;
+            position: relative;
+            left: -90px;
         }
     </style>
 </head>
@@ -215,37 +247,26 @@
         </div>
     </div>
     <!--这是在上边加每个众筹的标题-->
-    <div class="detail-title">Disaster Relief Fund</div>
+    <div class="detail-title"></div>
 
-    <div class="left">
-        <img class="img"
+    <div class="flex">
+        <img class="img left img2"
             src="http://gips2.baidu.com/it/u=195724436,3554684702&fm=3028&app=3028&f=JPEG&fmt=auto?w=1280&h=960" alt="">
-
-
-    </div>
-
-
-        <div class="container" id="top">
-        </div>
 
         <div class="show-area">
 
 
         </div>
-        <div class="button-area">
-            <button class="button" onclick="juanzeng()">Donation</button>
-            <button class="button" onclick="back()">Back</button>
-        </div>
+    </div>
+
+    <div class="button-area">
+        <button class="button" onclick="donate()">Donation</button>
+        <button class="button" onclick="back()">Back</button>
+    </div>
 
     <div class="intro">
-        <div class="text">
-            In the face of natural disasters, each of us can be a victim. The Disaster Relief Fund is committed to
-            providing emergency assistance in the immediate aftermath of a disaster to help people rebuild their homes
-            and lives. Every donation you make will go directly to providing emergency relief supplies such as food,
-            medical supplies, temporary shelter, and more.
+        <div class="text content">
 
-            Join us in igniting a ray of hope for those in need. Your donation will bring new hope and strength to
-            countless families.
         </div>
 
     </div>

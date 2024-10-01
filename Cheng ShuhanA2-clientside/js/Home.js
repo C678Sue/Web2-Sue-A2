@@ -51,11 +51,11 @@ getActiveList()
 function renderList() {
     let html = '';
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < list.length; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
     <div class="right">
         <img class="active-img"
-        src="./images/${i + 1}.jpg"
+        src="${list[i].PICTURES}"
         alt="">
     </div>
     
@@ -63,6 +63,7 @@ function renderList() {
          <div class="left-item"><div>Caption：</div><div class="line">${list[i].TITLE}</div></div>
              <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
              <div class="left-item"><div>Organiser：</div><div class="line">${list[i].ORGANIZER}</div></div>
+             <div class="left-item"><div>Status：</div><div class="line">${list[i].STATUS}</div></div>
              <div class="left-item"><div>Target funding：</div><div class="line">${list[i].TARGET_FUNDING}</div></div>
              <div class="left-item"><div>Current funding：</div><div class="line">${list[i].CURRENT_FUNDING}</div></div>
              <div class="left-item"><div>City：</div><div class="line">${list[i].CITY}</div></div>
@@ -77,5 +78,5 @@ function renderList() {
 }
 //   跳转到搜索页面
 function toSearch() {
-    window.location.href = 'Search fundraisers.html'
+    window.location.href = 'Searchfundraisers.html'
 }

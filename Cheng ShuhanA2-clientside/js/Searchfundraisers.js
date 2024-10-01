@@ -86,15 +86,15 @@ function showList() {
                         alt="">
                 </div>
                 <div class="left">
+                    <div class="left-item"><div>Caption：</div><div class="line">${list[i].TITLE}</div></div>
                     <div class="left-item"><div>ID：</div><div class="line">${list[i].CATEGORY_ID}</div></div>
-                    <div class="left-item"><div>组织者：</div><a onclick='toDetail(${list[i].CATEGORY_ID})' href='./Fundraiser.html' class="line">${list[i].ORGANIZER}</a></div>
-                    <div class="left-item"><div>标题：</div><div class="line">${list[i].TITLE}</div></div>
-                    
-                    <div class="left-item"><div>目标资金：</div><div class="line">${list[i].TARGET_FUNDING}</div></div>
-                    <div class="left-item"><div>当前资金：</div><div class="line">${list[i].CURRENT_FUNDING}</div></div>
-                    <div class="left-item"><div>城市：</div><div class="line">${list[i].CITY}</div></div>
-                    <div class="left-item"><div>类型：</div><div class="line">${list[i].NAME}</div></div>
-                </div>
+                    <div class="left-item"><div>Organiser：</div><a onclick='toDetail(${list[i].FUNDRAISER_ID})' href='./Fundraiser.html' class="line">${list[i].ORGANIZER}</a></div> 
+                    <div class="left-item"><div>Status：</div><div class="line">${list[i].STATUS}</div></div>
+                    <div class="left-item"><div>Target funding：</div><div class="line">${list[i].TARGET_FUNDING}</div></div>
+                    <div class="left-item"><div>Current funding：</div><div class="line">${list[i].CURRENT_FUNDING}</div></div>
+                    <div class="left-item"><div>City：</div><div class="line">${list[i].CITY}</div></div>
+                    <div class="left-item"><div>Category：</div><div class="line">${list[i].NAME}</div></div>
+            </div>
 
                  </div>`
 
@@ -112,7 +112,7 @@ function toIndex() {
 }
 //   跳转到搜索页面
 function toSearch() {
-    window.location.href = 'Search fundraisers.html'
+    window.location.href = 'Searchfundraisers.html'
 }
 
 
