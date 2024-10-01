@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <style>
+        /*This is the name of the entire public welfare crowdfunding website*/
         .title {
-            position: fixed;
-            top: 0;
+            position: fixed; /*Pin the title to the page*/
+            top: 0; /*Make the title at the top of the page*/
             width: 100%;
             height: 50px;
             background-color: #333;
@@ -16,17 +16,15 @@
             text-align: center;
             padding: 0.1px;
             z-index: 1000;
-            transition: top 0.5s ease-out;
             margin: 0;
             font-size: 40px;
-            /*标题字的大小*/
-            text-shadow: 1px 1px #ffffff, 2px 2px #ea987c, 3px 3px #f1baa6;
+            text-shadow: 1px 1px #ffffff, 2px 2px #ea987c, 3px 3px #f1baa6; /*Make use of overlapping words in WordArt*/
         }
 
-
+        /*Control the position and style of navigation*/
         .banner {
-            position: fixed;
-            top: 50px;
+            position: fixed; /*Pin the navigation to the page*/
+            top: 50px; /*50px distance from top*/
             width: 100%;
             background-color: #333;
             color: white;
@@ -34,28 +32,56 @@
             justify-content: space-around;
             padding: 10px 20px;
             z-index: 1000;
-            transition: top 0.5s ease-out;
             font-size: 20px;
         }
 
+        /*Control the two navigation buttons and set the style and position*/
         .nav-item {
             padding: 10px;
             flex: 1;
             text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s;
+            cursor: pointer; /*Causes the mouse to turn into a finger when hovering over a button*/
         }
 
+        /*Sets the color change that occurs when the mouse hovers over the navigation buttons*/
         .nav-item:hover {
-            background-color: #555;
-            /* 调整悬停时的背景颜色 */
-            color: #ddd;
-            /* 调整悬停时的文字颜色 */
+            background-color: #555; /*Adjust the background color*/
+            color: #ddd; /*Adjust the text color*/
         }
 
+        /*Navigate the changing colors*/
         .nav-item.active {
             background-color: gray;
             color: white;
+        }
+
+        /*Set up a welcome message*/
+        .welcome {
+            position: fixed;
+            top: 100px;
+            width: 100%;
+            background-color: #444;
+            color: white;
+            text-align: center; /*Center the text*/
+            padding: 1em;
+            z-index: 1001;
+            transition: opacity 1s ease-out; /*Make the welcome disappear slowly*/
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        /*Set transparency*/
+        .welcome.fade-out {
+            opacity: 0;
+        }
+
+        /*Triggers a transition effect of transparency, causing elements to fade or appear*/
+        .welcome-section {
+            text-align: center;
+            padding: 5em 0;
+            background-size: cover;
+            color: white;
+            transition: opacity 1s ease-out;
         }
 
         .container {
@@ -64,90 +90,53 @@
             padding: 20px;
         }
 
-        .img {
-            width: 30%;
-            margin: 0 auto;
-        }
-
         .center {
             text-align: center;
         }
 
+        /*Formal content*/
         .intro {
             width: 100%;
             margin-top: 200px;
         }
 
-        .text {
-            margin: 20px 0 0 0;
-            text-indent: 2rem;
-        }
-
-        .list-item {
-            margin-top: 20px;
-            background-color: rgb(203, 201, 201);
-            border-radius: 20px;
-            padding: 20px;
-        }
-
-        .list-item-text {
-            margin: 30px;
-        }
-
-        .menu {
-            position: fixed;
-            right: 0;
-            top: 50%;
-            transform: translate(0, -50%);
-        }
-
-        .menu-item {
-            width: 100px;
-            height: 50px;
-            background-color: rgb(120, 138, 138);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid ghostwhite;
-            margin-top: 2px;
-            color: white;
-        }
-
+        /*Home page event listings for fundraising information*/
         .active-info {
             display: flex;
-            border: 1px solid gray;
+            border: 2px solid rgb(161, 173, 186); /*Set the table border*/
             margin: 20px 0;
-
         }
 
+        /*Create a sidebar*/
         .left {
             width: 70%;
-            border-left: 1px solid gray;
+            border-left: 1px solid rgb(161, 173, 186);
             padding: 20px;
         }
 
+        /*Set the line below the information in the table*/
         .line {
             flex: 1;
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid rgb(96, 136, 177);
         }
 
+        /*Applies to individual items within a .left container*/
         .left-item {
-            display: flex;
+            display: flex; /*Arrange the child elements in a row*/
             margin: 10px 0;
         }
 
+        /*Styles the container that contains the image <div>*/
         .right {
             width: 30%;
             border-right: 1px solid gray;
             display: flex;
-            justify-content: center;
+            justify-content: center; /*Aligns child elements horizontally and centered*/
             align-items: center;
             padding: 20px;
             display: flex;
-            flex-direction: column;
-            /* 使图片垂直排列 */
-            align-items: center;
-            /* 居中对齐 */
+            flex-direction: column; /* Make the pictures vertical */
+            align-items: center; /* Center-aligned */
             object-fit: cover;
         }
 
@@ -155,42 +144,9 @@
             width: 100%;
         }
 
-        .welcome {
-            /*原来的desc欢迎语*/
-            position: fixed;
-            top: 100px;
-            width: 100%;
-            background-color: #444;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            /*这是改变欢迎语的宽度的*/
-            z-index: 1001;
-            transition: opacity 1s ease-out;
-            margin-top: 0;
-            /* 删除空隙 */
-            margin-bottom: 20px;
-            /* 增加一个空隙 */
-
-        }
-
-        .welcome.fade-out {
-            opacity: 0;
-        }
-
-        .welcome-section {
-            text-align: center;
-            padding: 5em 0;
-            background-image: url('welcome.jpg');
-            background-size: cover;
-            color: white;
-            transition: opacity 1s ease-out;
-        }
-
         body {
             height: 100%;
         }
-
 
         .footer-tips {
             display: flex;
@@ -199,6 +155,7 @@
             height: 90px;
         }
 
+        /*Set up the footer section in the web page*/
         .footer {
             border: 1px solid gray;
             padding-bottom: 20px;
@@ -212,10 +169,14 @@
             z-index: 1000;
             margin: 0;
             font-size: 20px;
-            /* 根据需要调整字体大小 */
             border: 1px solid #000;
-            /* 设置边框 */
+        }
 
+        .footer-item {
+            text-decoration: underline;
+            margin-right: 20px;
+            padding: 10px;
+            margin: 10px 0;
         }
 
         .cont {
@@ -224,27 +185,17 @@
             justify-content: center;
         }
 
-        .footer-item {
-            text-decoration: underline;
-            margin-right: 20px;
-
-            /* 设置边框 */
-            padding: 10px;
-            /* 内边距 */
-            margin: 10px 0;
-            /* 外边距 */
-
-        }
-
+        /*Contact*/
         .contact-item {
             margin-bottom: 5px;
-            /* 每个联系方式之间的间距 */
         }
+
     </style>
 </head>
 
 <body>
     <div class="title">Sue's FundHub</div>
+
     <div class="banner">
         <div class="nav-item" onclick="toIndex()" id="home">
             Home
@@ -259,10 +210,8 @@
         support meaningful causes!
     </div>
 
-
-
     <div class="container" id="top">
-        <!--这儿删除了title、欢迎语以及导航，使得这些能成100%-->
+        
         <div class="intro">
             <div class="arr">
 
@@ -270,6 +219,7 @@
         </div>
 
     </div>
+
     <div class="footer">
         <div class="footer-tips">YOU CAN CONTACT US BY</div>
         <div class="cont">
@@ -279,6 +229,7 @@
         </div>
     </div>
     <div id="bottom"></div>
+    <!--Import an external JavaScript file into the HTML page-->>
     <script src="./js/Home.js"></script>
 </body>
 

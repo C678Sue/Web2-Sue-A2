@@ -1,12 +1,12 @@
-
+// Retrieve the 'id' from local storage
 let id = localStorage.getItem('id')
 console.log(id)
-//  活动数据
+// Initialize an empty array to store activity data
 let list = []
-//  获取所有活动
+
 function getList(params) {
 
-
+    //Send a request to get a list of activities
     fetch('http://localhost:3000/api/id?FUNDRAISER_ID=' + params.FUNDRAISER_ID, {
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +23,6 @@ function getList(params) {
 
 }
 const navItems = document.querySelectorAll('.nav-item');
-
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navItems.forEach(nav => nav.classList.remove('active'));
@@ -31,19 +30,12 @@ navItems.forEach(item => {
     });
 });
 
-
+//Call the getList function and pass in the arguments
 getList({ FUNDRAISER_ID: id })
 function showList() {
     let html = '';
 
-    /*for (let i = 0; i < list.length; i++) {
-        let temp = `<div class="active-info" id='active${i + 1}'>
-    <div class="right">
-        <img class="active-img"
-        src="./images/${i+1}.jpg"
-        alt="">
-    </div>
-*/
+    //Iterate through the list array to generate HTML content
     for (let i = 0; i < list.length; i++) {
 
         html = `
@@ -66,24 +58,31 @@ function showList() {
                 </div>`;
     }
     debugger
+    //Updated images and details
     document.querySelector('.img2').src = list[0].PICTURES
     document.querySelector('.content').innerHTML = list[0].detailed
 
+    //Insert the resulting HTML content into the page
     var ele = document.querySelector('.show-area')
     ele.innerHTML = (html)
 }
 
-// 捐赠
+//Prompts the user that the feature is under construction
 function donate() {
     alert('This feature is under contruction')
 }
-// 捐赠
+
+//Return to the Search Fundraiser page
 function back() {
     location.href = 'Searchfundraisers.html'
 }
+
+//Jump to the search for fundraiser page
 function toSearch() {
     window.location.href = 'Searchfundraisers.html'
 }
+
+//Jump to the home page
 function toIndex() {
     window.location.href = 'Home.html'
 }

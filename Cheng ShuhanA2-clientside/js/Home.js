@@ -1,12 +1,15 @@
-//这是新加的代码！！！
+//Add a scrolling fade-out effect to the welcome message
 window.addEventListener('scroll', function () {
+    //Get the element with the ID 'welcome'
     const welcomeMessage = document.getElementById('welcome');
     const welcomeSection = document.querySelector('.welcome-section');
+    //If the page scrolls more than 100 pixels, add the 'fade-out' class to the 'welcomeMessage' element
     if (window.scrollY > 100) {
         welcomeMessage.classList.add('fade-out');
     } else {
         welcomeMessage.classList.remove('fade-out');
     }
+    //If the page scrolls more than 150 pixels, add the 'fade-out' class to the 'welcomeSection' element
     if (window.scrollY > 150) {
         welcomeSection.classList.add('fade-out');
     } else {
@@ -14,24 +17,24 @@ window.addEventListener('scroll', function () {
     }
 });
 
+//Highlight the currently selected navigation item
 const navItems = document.querySelectorAll('.nav-item');
-
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navItems.forEach(nav => nav.classList.remove('active'));
         item.classList.add('active');
     });
-});//直到这儿
+});
 
-
-//  活动数据
+//  Initializes an empty array that stores the list of activities
 let list = []
-//  获取所有活动
+//  Get all the activities
 function getActiveList() {
 
+    //Use the fetch API to get data from the specified URL
     fetch('http://localhost:3000/api/all', {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json' //Specify the content type as JSON
         },
     })
         .then(response => {
@@ -44,13 +47,11 @@ function getActiveList() {
 
 }
 
-
-
 getActiveList()
-//  展示活动列表
 function renderList() {
-    let html = '';
+    let html = ''; //Initialize an empty string to store HTML content
 
+    //Traverse each item in the list array
     for (let i = 0; i < list.length; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
     <div class="right">
@@ -73,10 +74,11 @@ function renderList() {
      </div>`
         html += temp
     }
+    //Select the element with the class name 'arr' and set its innerHTML to the generated HTML content
     var ele = document.querySelector('.arr')
     ele.innerHTML = (html)
 }
-//   跳转到搜索页面
+//   Jump to the search page
 function toSearch() {
     window.location.href = 'Searchfundraisers.html'
 }

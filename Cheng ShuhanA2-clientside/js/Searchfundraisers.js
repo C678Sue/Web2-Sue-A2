@@ -1,12 +1,11 @@
-
-//  活动数据
+//  Initializes an empty array that stores the list of activities
 let list = []
-//  获取所有活动
+//  Get all the activities
 function getList(params) {
 
-
-
+    //The URL of the request is constructed, and the initial URL contains the basic query parameters
     var url = `http://localhost:3000/api/search?a=1`
+    //Add the query parameters based on the CITY parameter that is passed in
     if (params.CITY) {
         url += `&CITY=${params.CITY}`;
     }
@@ -16,14 +15,15 @@ function getList(params) {
     if (params.CATEGORY_ID) {
         url += `&CATEGORY_ID=${params.CATEGORY_ID}`;
     }
+    //Send a GET request to get activity data
     fetch(url, {
-        method: 'GET', // 默认值就是 GET，所以其实可以省略
+        method: 'GET', 
         headers: {
             'Content-Type': 'application/json'
         },
     })
         .then(response => {
-            return response.json();
+            return response.json(); //Convert responses to JSON format
         })
         .then(data => {
             console.log(data);
@@ -31,11 +31,10 @@ function getList(params) {
             showList(list)
         })
 
-
 }
-//这是新加的代码
-const navItems = document.querySelectorAll('.nav-item');
 
+//Select all elements that have a 'nav-item' class
+const navItems = document.querySelectorAll('.nav-item');
 navItems.forEach(item => {
     item.addEventListener('click', () => {
         navItems.forEach(nav => nav.classList.remove('active'));
@@ -43,41 +42,50 @@ navItems.forEach(item => {
     });
 });
 
-//   跳转到详情页面
+//   Go to the details page
 function toDetail(id) {
     localStorage.setItem('id', id)
 }
+
 //  搜索按钮
 function search() {
+    // Get the value of the input field with class 'CITY'
     var CITY = document.querySelector('.CITY').value;
     var ORGANIZER = document.querySelector('.ORGANIZER').value;
     var CATEGORY_ID = document.querySelector('.CATEGORY_ID').value;
 
+    // Create an object 'params' to hold the search parameters
     let params = {
         ORGANIZER: ORGANIZER,
         CITY: CITY,
         CATEGORY_ID: CATEGORY_ID
     }
+    // Check if all search parameters are empty
     if (!ORGANIZER && !CITY && !CATEGORY_ID) {
-        return alert('至少输入一个条件')
+        // If all parameters are empty, show an alert message
+        return alert('Enter at least one condition')
     }
+    // Call the function 'getList' with the search parameters
     getList(params)
-
 }
+
 //  清楚下拉框数据
 function clearChechboxes() {
+    //Clear the value of the input field with the class name 'CATEGORY_ID'
     document.querySelector('.CATEGORY_ID').value = '';
     document.querySelector('.CITY').value = '';
     document.querySelector('.ORGANIZER').value = '';
-    //  展示活动列表
 }
+
 function showList() {
-    let html = '';
+    let html = ''; //Initialize an empty string to store HTML content
+    //If the list is empty, a prompt message is displayed
     if (list.length == 0) {
         let list = document.querySelector('.list')
         list.innerHTML = ` <div class="tips red">No relevant information found</div>`
         return
     }
+    //Iterate through each item in the list
     for (let i = 0; i < list.length; i++) {
         let temp = `<div class="active-info" id='active${i + 1}'>
                 <div class="right">
@@ -106,11 +114,11 @@ function showList() {
 
 
 
-//   跳转到首页
+//   Jump to the Home
 function toIndex() {
     window.location.href = 'Home.html'
 }
-//   跳转到搜索页面
+//   Jump to the search page
 function toSearch() {
     window.location.href = 'Searchfundraisers.html'
 }
