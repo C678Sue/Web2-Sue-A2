@@ -47,7 +47,6 @@ function toDetail(id) {
     localStorage.setItem('id', id)
 }
 
-//  搜索按钮
 function search() {
     // Get the value of the input field with class 'CITY'
     var CITY = document.querySelector('.CITY').value;
@@ -69,7 +68,6 @@ function search() {
     getList(params)
 }
 
-//  清楚下拉框数据
 function clearChechboxes() {
     //Clear the value of the input field with the class name 'CATEGORY_ID'
     document.querySelector('.CATEGORY_ID').value = '';

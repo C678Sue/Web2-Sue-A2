@@ -1,14 +1,14 @@
 const mysql = require('mysql');
-// 创建数据库连接
+// Create a database connection
 const db = mysql.createConnection({
-    host: 'localhost', // 数据库地址
-    user: 'root', // 数据库用户
-    password: '123456', // 数据库密码
-    database: 'crowdfunding_db' // 你要连接的数据库名
+    host: 'localhost', // Database address
+    user: 'root', // Database users
+    password: '123456', // Database password
+    database: 'crowdfunding_db' // The name of the database to connect to
   
   });
   
-  // 连接数据库
+  // Connecting to a database
   db.connect((err) => {
     if (err) {
       throw err;
